@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "../../app/globals.css";
 import { Pagination } from "swiper/modules";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { setCategory } from "../../features/dealsSlice";
@@ -19,6 +19,16 @@ function DealsCarousel() {
     (state: RootState) => state.deals
   );
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const filtered = restaurants.filter((r) => r.category === category);
 
   const handleCategoryClick = (cat: typeof category) => {
@@ -26,6 +36,8 @@ function DealsCarousel() {
       router.push("/restaurants");
     } else {
       dispatch(setCategory(cat));
+      setLoading(true);
+      setTimeout(() => setLoading(false), 500); // YENİ KATEQORİYADA DA LOADING EFFEKTI KIMI BISEYLER
     }
   };
 
@@ -66,28 +78,37 @@ function DealsCarousel() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {filtered.map((rest) => (
-          <SwiperSlide
-            key={rest.id}
-            onClick={() => handleCardClick(rest.id)}
-            className="cursor-pointer rounded-xl relative overflow-hidden"
-          >
-            <div
-              className="rounded-xl h-70 w-full relative flex items-end p-2"
-              style={{
-                backgroundImage: `url(${rest.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="absolute inset-0 bg-black/30 rounded-xl"></div>
-              <h3 className="relative z-10 w-full text-center text-white bg-black/70 p-2 rounded-md">
-                {rest.name}
-              </h3>
-            </div>
-          </SwiperSlide>
-        ))}
+        {loading
+          ? Array.from({ length: 3 }).map((_, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="h-70 w-full bg-gray-200 animate-pulse rounded-xl"></div>
+              </SwiperSlide>
+            ))
+          : filtered.map((rest) => (
+              <SwiperSlide
+                key={rest.id}
+                onClick={() => handleCardClick(rest.id)}
+                className="cursor-pointer rounded-xl relative overflow-hidden"
+              >
+                <div
+                  className="rounded-xl h-70 w-full relative flex items-end p-2"
+                  style={{
+                    backgroundImage: `url(${rest.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <p className="z-10 text-orange-400 text-base font-bold bg-black absolute top-0 right-4 p-3 rounded-b-2xl">
+                    {rest.deal}
+                  </p>
+                  <div className="absolute bg-gradient-to-bl from-white/0 via-slate-950/20 to-slate-950/90 rounded-xl z-20"></div>
+                  <h3 className="relative z-20 w-full text-center text-white bg-black/70 p-2 rounded-md">
+                    {rest.name}
+                  </h3>
+                </div>
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );

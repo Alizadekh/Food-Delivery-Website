@@ -1,0 +1,2577 @@
+[
+  {
+    "id": 1,
+    "name": "Sushi Palace",
+    "logo": "/images/restaurantLogo.png",
+    "address": "24 Main Street, Baku",
+    "rating": 3.9,
+    "categories": [
+      "Vegan",
+      "Asian",
+      "Grill"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 101,
+        "name": "Dish 1",
+        "price": 12.63,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "tomato",
+          "bun"
+        ]
+      },
+      {
+        "id": 102,
+        "name": "Dish 2",
+        "price": 11.26,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "avocado",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 103,
+        "name": "Dish 3",
+        "price": 6.3,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "tomato",
+          "cheese"
+        ]
+      },
+      {
+        "id": 104,
+        "name": "Dish 4",
+        "price": 11.18,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "rice",
+          "beef"
+        ]
+      },
+      {
+        "id": 105,
+        "name": "Dish 5",
+        "price": 7.93,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "seaweed",
+          "bun"
+        ]
+      },
+      {
+        "id": 106,
+        "name": "Dish 6",
+        "price": 7.64,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "tomato",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 107,
+        "name": "Dish 7",
+        "price": 6.44,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "bun",
+          "beef"
+        ]
+      },
+      {
+        "id": 108,
+        "name": "Dish 8",
+        "price": 5.15,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "rice",
+          "cheese"
+        ]
+      },
+      {
+        "id": 109,
+        "name": "Dish 9",
+        "price": 5.08,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "avocado",
+          "beef"
+        ]
+      },
+      {
+        "id": 110,
+        "name": "Dish 10",
+        "price": 14.02,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "cheese",
+          "rice"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Burger Point",
+    "logo": "/images/restaurantLogo.png",
+    "address": "74 Main Street, Baku",
+    "rating": 4.8,
+    "categories": [
+      "Vegan",
+      "Grill",
+      "Asian",
+      "Burgers"
+    ],
+    "deals": [
+      {
+        "id": 21,
+        "title": "13% Off Pizza",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 42% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 201,
+        "name": "Dish 1",
+        "price": 5.17,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "salmon",
+          "beef"
+        ]
+      },
+      {
+        "id": 202,
+        "name": "Dish 2",
+        "price": 11.98,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "beef",
+          "bun"
+        ]
+      },
+      {
+        "id": 203,
+        "name": "Dish 3",
+        "price": 9.29,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "salmon",
+          "beef"
+        ]
+      },
+      {
+        "id": 204,
+        "name": "Dish 4",
+        "price": 11.38,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "avocado",
+          "salmon"
+        ]
+      },
+      {
+        "id": 205,
+        "name": "Dish 5",
+        "price": 11.22,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "lettuce",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 206,
+        "name": "Dish 6",
+        "price": 13.86,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "lettuce",
+          "rice"
+        ]
+      },
+      {
+        "id": 207,
+        "name": "Dish 7",
+        "price": 11.03,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "cheese",
+          "onions"
+        ]
+      },
+      {
+        "id": 208,
+        "name": "Dish 8",
+        "price": 8.07,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "avocado",
+          "beef"
+        ]
+      },
+      {
+        "id": 209,
+        "name": "Dish 9",
+        "price": 11.92,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "cheese",
+          "avocado"
+        ]
+      },
+      {
+        "id": 210,
+        "name": "Dish 10",
+        "price": 6.07,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "lettuce",
+          "tomato"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Pasta House",
+    "logo": "/images/restaurantLogo.png",
+    "address": "51 Main Street, Baku",
+    "rating": 4.5,
+    "categories": [
+      "Healthy",
+      "Asian"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 301,
+        "name": "Dish 1",
+        "price": 5.91,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "salmon",
+          "rice"
+        ]
+      },
+      {
+        "id": 302,
+        "name": "Dish 2",
+        "price": 11.52,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "beef",
+          "avocado"
+        ]
+      },
+      {
+        "id": 303,
+        "name": "Dish 3",
+        "price": 9.36,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "rice",
+          "salmon"
+        ]
+      },
+      {
+        "id": 304,
+        "name": "Dish 4",
+        "price": 14.33,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "tomato",
+          "salmon"
+        ]
+      },
+      {
+        "id": 305,
+        "name": "Dish 5",
+        "price": 6.02,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "onions",
+          "rice"
+        ]
+      },
+      {
+        "id": 306,
+        "name": "Dish 6",
+        "price": 6.99,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "salmon",
+          "tomato"
+        ]
+      },
+      {
+        "id": 307,
+        "name": "Dish 7",
+        "price": 6.15,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "salmon",
+          "avocado"
+        ]
+      },
+      {
+        "id": 308,
+        "name": "Dish 8",
+        "price": 11.78,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "cheese",
+          "avocado"
+        ]
+      },
+      {
+        "id": 309,
+        "name": "Dish 9",
+        "price": 13.8,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "salmon",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 310,
+        "name": "Dish 10",
+        "price": 11.01,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "cheese",
+          "bun"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Pizza Mania",
+    "logo": "/images/restaurantLogo.png",
+    "address": "4 Main Street, Baku",
+    "rating": 4.8,
+    "categories": [
+      "Burgers",
+      "Asian",
+      "Fast Food",
+      "Middle Eastern"
+    ],
+    "deals": [
+      {
+        "id": 41,
+        "title": "18% Off Sushi",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 38% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 401,
+        "name": "Dish 1",
+        "price": 8.29,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "tomato",
+          "onions"
+        ]
+      },
+      {
+        "id": 402,
+        "name": "Dish 2",
+        "price": 11.76,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "cheese",
+          "beef"
+        ]
+      },
+      {
+        "id": 403,
+        "name": "Dish 3",
+        "price": 7.42,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "rice",
+          "beef"
+        ]
+      },
+      {
+        "id": 404,
+        "name": "Dish 4",
+        "price": 14.83,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "avocado",
+          "rice"
+        ]
+      },
+      {
+        "id": 405,
+        "name": "Dish 5",
+        "price": 8.26,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "avocado",
+          "cheese"
+        ]
+      },
+      {
+        "id": 406,
+        "name": "Dish 6",
+        "price": 6.63,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "salmon",
+          "tomato"
+        ]
+      },
+      {
+        "id": 407,
+        "name": "Dish 7",
+        "price": 12.9,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "rice",
+          "cheese"
+        ]
+      },
+      {
+        "id": 408,
+        "name": "Dish 8",
+        "price": 8.38,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "tomato",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 409,
+        "name": "Dish 9",
+        "price": 13.16,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "beef",
+          "bun"
+        ]
+      },
+      {
+        "id": 410,
+        "name": "Dish 10",
+        "price": 6.06,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "tomato",
+          "seaweed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Green Vegan",
+    "logo": "/images/restaurantLogo.png",
+    "address": "97 Main Street, Baku",
+    "rating": 3.6,
+    "categories": [
+      "Pizza",
+      "Middle Eastern",
+      "Asian",
+      "Fast Food"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 501,
+        "name": "Dish 1",
+        "price": 10.3,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "rice",
+          "cheese"
+        ]
+      },
+      {
+        "id": 502,
+        "name": "Dish 2",
+        "price": 13.37,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "seaweed",
+          "avocado"
+        ]
+      },
+      {
+        "id": 503,
+        "name": "Dish 3",
+        "price": 8.4,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "rice",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 504,
+        "name": "Dish 4",
+        "price": 12.32,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "salmon",
+          "bun"
+        ]
+      },
+      {
+        "id": 505,
+        "name": "Dish 5",
+        "price": 12.5,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "beef",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 506,
+        "name": "Dish 6",
+        "price": 14.61,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "tomato",
+          "cheese"
+        ]
+      },
+      {
+        "id": 507,
+        "name": "Dish 7",
+        "price": 14.25,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "rice",
+          "cheese"
+        ]
+      },
+      {
+        "id": 508,
+        "name": "Dish 8",
+        "price": 13.52,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "bun",
+          "avocado"
+        ]
+      },
+      {
+        "id": 509,
+        "name": "Dish 9",
+        "price": 7.28,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "salmon",
+          "beef"
+        ]
+      },
+      {
+        "id": 510,
+        "name": "Dish 10",
+        "price": 11.27,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "cheese",
+          "bun"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Spice Curry",
+    "logo": "/images/restaurantLogo.png",
+    "address": "33 Main Street, Baku",
+    "rating": 3.6,
+    "categories": [
+      "Sushi",
+      "Burgers",
+      "Pizza"
+    ],
+    "deals": [
+      {
+        "id": 61,
+        "title": "19% Off Sushi",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 16% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 601,
+        "name": "Dish 1",
+        "price": 10.19,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "seaweed",
+          "onions"
+        ]
+      },
+      {
+        "id": 602,
+        "name": "Dish 2",
+        "price": 11.49,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "bun",
+          "onions"
+        ]
+      },
+      {
+        "id": 603,
+        "name": "Dish 3",
+        "price": 9.56,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "seaweed",
+          "salmon"
+        ]
+      },
+      {
+        "id": 604,
+        "name": "Dish 4",
+        "price": 8.24,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "salmon",
+          "beef"
+        ]
+      },
+      {
+        "id": 605,
+        "name": "Dish 5",
+        "price": 6.11,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "bun",
+          "rice"
+        ]
+      },
+      {
+        "id": 606,
+        "name": "Dish 6",
+        "price": 13.43,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "onions",
+          "beef"
+        ]
+      },
+      {
+        "id": 607,
+        "name": "Dish 7",
+        "price": 5.7,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "onions",
+          "rice"
+        ]
+      },
+      {
+        "id": 608,
+        "name": "Dish 8",
+        "price": 9.86,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "onions",
+          "bun"
+        ]
+      },
+      {
+        "id": 609,
+        "name": "Dish 9",
+        "price": 11.8,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "onions",
+          "tomato"
+        ]
+      },
+      {
+        "id": 610,
+        "name": "Dish 10",
+        "price": 6.87,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "lettuce",
+          "tomato"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Taco Time",
+    "logo": "/images/restaurantLogo.png",
+    "address": "86 Main Street, Baku",
+    "rating": 4.7,
+    "categories": [
+      "Burgers",
+      "Sushi",
+      "Pizza",
+      "Vegan"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 701,
+        "name": "Dish 1",
+        "price": 11.85,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "cheese",
+          "beef"
+        ]
+      },
+      {
+        "id": 702,
+        "name": "Dish 2",
+        "price": 11.99,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "lettuce",
+          "avocado"
+        ]
+      },
+      {
+        "id": 703,
+        "name": "Dish 3",
+        "price": 10.13,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "cheese",
+          "rice"
+        ]
+      },
+      {
+        "id": 704,
+        "name": "Dish 4",
+        "price": 11.05,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "cheese",
+          "onions"
+        ]
+      },
+      {
+        "id": 705,
+        "name": "Dish 5",
+        "price": 9.97,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "bun",
+          "onions"
+        ]
+      },
+      {
+        "id": 706,
+        "name": "Dish 6",
+        "price": 14.38,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "seaweed",
+          "avocado"
+        ]
+      },
+      {
+        "id": 707,
+        "name": "Dish 7",
+        "price": 10.48,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "rice",
+          "onions"
+        ]
+      },
+      {
+        "id": 708,
+        "name": "Dish 8",
+        "price": 6.68,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "beef",
+          "bun"
+        ]
+      },
+      {
+        "id": 709,
+        "name": "Dish 9",
+        "price": 13.49,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "bun",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 710,
+        "name": "Dish 10",
+        "price": 9.69,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "tomato",
+          "avocado"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Noodle Hub",
+    "logo": "/images/restaurantLogo.png",
+    "address": "81 Main Street, Baku",
+    "rating": 4.3,
+    "categories": [
+      "Bakery",
+      "Seafood",
+      "Vegan",
+      "Asian"
+    ],
+    "deals": [
+      {
+        "id": 81,
+        "title": "34% Off Burgers",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 40% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 801,
+        "name": "Dish 1",
+        "price": 8.69,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "lettuce",
+          "cheese"
+        ]
+      },
+      {
+        "id": 802,
+        "name": "Dish 2",
+        "price": 5.13,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "salmon",
+          "tomato"
+        ]
+      },
+      {
+        "id": 803,
+        "name": "Dish 3",
+        "price": 10.19,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "cheese",
+          "bun"
+        ]
+      },
+      {
+        "id": 804,
+        "name": "Dish 4",
+        "price": 7.42,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "tomato",
+          "cheese"
+        ]
+      },
+      {
+        "id": 805,
+        "name": "Dish 5",
+        "price": 8.01,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "beef",
+          "onions"
+        ]
+      },
+      {
+        "id": 806,
+        "name": "Dish 6",
+        "price": 9.53,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "lettuce",
+          "salmon"
+        ]
+      },
+      {
+        "id": 807,
+        "name": "Dish 7",
+        "price": 13.73,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "avocado",
+          "onions"
+        ]
+      },
+      {
+        "id": 808,
+        "name": "Dish 8",
+        "price": 12.31,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "tomato",
+          "avocado"
+        ]
+      },
+      {
+        "id": 809,
+        "name": "Dish 9",
+        "price": 5.82,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "rice",
+          "beef"
+        ]
+      },
+      {
+        "id": 810,
+        "name": "Dish 10",
+        "price": 8.08,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "onions",
+          "tomato"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Kebab King",
+    "logo": "/images/restaurantLogo.png",
+    "address": "52 Main Street, Baku",
+    "rating": 4.4,
+    "categories": [
+      "Asian",
+      "Grill",
+      "Middle Eastern"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 901,
+        "name": "Dish 1",
+        "price": 7.1,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "tomato",
+          "onions"
+        ]
+      },
+      {
+        "id": 902,
+        "name": "Dish 2",
+        "price": 5.07,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "seaweed",
+          "rice"
+        ]
+      },
+      {
+        "id": 903,
+        "name": "Dish 3",
+        "price": 5.64,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "salmon",
+          "avocado"
+        ]
+      },
+      {
+        "id": 904,
+        "name": "Dish 4",
+        "price": 8.83,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "onions",
+          "bun"
+        ]
+      },
+      {
+        "id": 905,
+        "name": "Dish 5",
+        "price": 7.39,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "tomato",
+          "bun"
+        ]
+      },
+      {
+        "id": 906,
+        "name": "Dish 6",
+        "price": 5.53,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "onions",
+          "salmon"
+        ]
+      },
+      {
+        "id": 907,
+        "name": "Dish 7",
+        "price": 10.84,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "bun",
+          "onions"
+        ]
+      },
+      {
+        "id": 908,
+        "name": "Dish 8",
+        "price": 13.12,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "avocado",
+          "bun"
+        ]
+      },
+      {
+        "id": 909,
+        "name": "Dish 9",
+        "price": 9.0,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "cheese",
+          "salmon"
+        ]
+      },
+      {
+        "id": 910,
+        "name": "Dish 10",
+        "price": 7.29,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "cheese",
+          "rice"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "BBQ Shack",
+    "logo": "/images/restaurantLogo.png",
+    "address": "18 Main Street, Baku",
+    "rating": 3.9,
+    "categories": [
+      "Seafood",
+      "Fast Food",
+      "Grill",
+      "Bakery"
+    ],
+    "deals": [
+      {
+        "id": 101,
+        "title": "33% Off Drinks",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 40% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 1001,
+        "name": "Dish 1",
+        "price": 6.35,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "onions",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1002,
+        "name": "Dish 2",
+        "price": 8.01,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "bun",
+          "beef"
+        ]
+      },
+      {
+        "id": 1003,
+        "name": "Dish 3",
+        "price": 12.37,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "onions",
+          "bun"
+        ]
+      },
+      {
+        "id": 1004,
+        "name": "Dish 4",
+        "price": 14.35,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "lettuce",
+          "onions"
+        ]
+      },
+      {
+        "id": 1005,
+        "name": "Dish 5",
+        "price": 13.92,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "salmon",
+          "bun"
+        ]
+      },
+      {
+        "id": 1006,
+        "name": "Dish 6",
+        "price": 10.24,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "avocado",
+          "bun"
+        ]
+      },
+      {
+        "id": 1007,
+        "name": "Dish 7",
+        "price": 6.81,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "cheese",
+          "beef"
+        ]
+      },
+      {
+        "id": 1008,
+        "name": "Dish 8",
+        "price": 11.14,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "rice",
+          "onions"
+        ]
+      },
+      {
+        "id": 1009,
+        "name": "Dish 9",
+        "price": 7.72,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "salmon",
+          "onions"
+        ]
+      },
+      {
+        "id": 1010,
+        "name": "Dish 10",
+        "price": 12.73,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "cheese",
+          "bun"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Seafood Bay",
+    "logo": "/images/restaurantLogo.png",
+    "address": "86 Main Street, Baku",
+    "rating": 3.7,
+    "categories": [
+      "Healthy",
+      "Bakery",
+      "Middle Eastern",
+      "Vegan"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 1101,
+        "name": "Dish 1",
+        "price": 8.24,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "avocado",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1102,
+        "name": "Dish 2",
+        "price": 9.87,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "salmon",
+          "bun"
+        ]
+      },
+      {
+        "id": 1103,
+        "name": "Dish 3",
+        "price": 7.19,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "seaweed",
+          "rice"
+        ]
+      },
+      {
+        "id": 1104,
+        "name": "Dish 4",
+        "price": 12.92,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "rice",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1105,
+        "name": "Dish 5",
+        "price": 8.58,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "seaweed",
+          "onions"
+        ]
+      },
+      {
+        "id": 1106,
+        "name": "Dish 6",
+        "price": 13.19,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "beef",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1107,
+        "name": "Dish 7",
+        "price": 7.0,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "tomato",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1108,
+        "name": "Dish 8",
+        "price": 7.96,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "avocado",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1109,
+        "name": "Dish 9",
+        "price": 12.69,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "rice",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1110,
+        "name": "Dish 10",
+        "price": 13.85,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "seaweed",
+          "lettuce"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "D\u00f6ner Deluxe",
+    "logo": "/images/restaurantLogo.png",
+    "address": "67 Main Street, Baku",
+    "rating": 4.2,
+    "categories": [
+      "Fast Food",
+      "Grill",
+      "Pizza"
+    ],
+    "deals": [
+      {
+        "id": 121,
+        "title": "22% Off Pizza",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 22% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 1201,
+        "name": "Dish 1",
+        "price": 14.5,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "beef",
+          "rice"
+        ]
+      },
+      {
+        "id": 1202,
+        "name": "Dish 2",
+        "price": 10.35,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "onions",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1203,
+        "name": "Dish 3",
+        "price": 8.47,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "tomato",
+          "onions"
+        ]
+      },
+      {
+        "id": 1204,
+        "name": "Dish 4",
+        "price": 5.29,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "salmon",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1205,
+        "name": "Dish 5",
+        "price": 5.24,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "cheese",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1206,
+        "name": "Dish 6",
+        "price": 14.68,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "bun",
+          "onions"
+        ]
+      },
+      {
+        "id": 1207,
+        "name": "Dish 7",
+        "price": 14.98,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "avocado",
+          "beef"
+        ]
+      },
+      {
+        "id": 1208,
+        "name": "Dish 8",
+        "price": 11.59,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "salmon",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1209,
+        "name": "Dish 9",
+        "price": 6.99,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "onions",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1210,
+        "name": "Dish 10",
+        "price": 14.46,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "beef",
+          "tomato"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Rice & Roll",
+    "logo": "/images/restaurantLogo.png",
+    "address": "23 Main Street, Baku",
+    "rating": 3.5,
+    "categories": [
+      "Vegan",
+      "Pizza"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 1301,
+        "name": "Dish 1",
+        "price": 5.54,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "onions",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1302,
+        "name": "Dish 2",
+        "price": 13.18,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "seaweed",
+          "beef"
+        ]
+      },
+      {
+        "id": 1303,
+        "name": "Dish 3",
+        "price": 5.55,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "salmon",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1304,
+        "name": "Dish 4",
+        "price": 7.81,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "cheese",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1305,
+        "name": "Dish 5",
+        "price": 13.19,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "avocado",
+          "rice"
+        ]
+      },
+      {
+        "id": 1306,
+        "name": "Dish 6",
+        "price": 12.6,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "beef",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1307,
+        "name": "Dish 7",
+        "price": 12.5,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "onions",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1308,
+        "name": "Dish 8",
+        "price": 8.65,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "cheese",
+          "rice"
+        ]
+      },
+      {
+        "id": 1309,
+        "name": "Dish 9",
+        "price": 12.27,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "salmon",
+          "cheese"
+        ]
+      },
+      {
+        "id": 1310,
+        "name": "Dish 10",
+        "price": 13.71,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "seaweed",
+          "lettuce"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Fast Feast",
+    "logo": "/images/restaurantLogo.png",
+    "address": "10 Main Street, Baku",
+    "rating": 3.7,
+    "categories": [
+      "Asian",
+      "Bakery"
+    ],
+    "deals": [
+      {
+        "id": 141,
+        "title": "19% Off Burgers",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 13% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 1401,
+        "name": "Dish 1",
+        "price": 10.27,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "tomato",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1402,
+        "name": "Dish 2",
+        "price": 14.37,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "onions",
+          "bun"
+        ]
+      },
+      {
+        "id": 1403,
+        "name": "Dish 3",
+        "price": 11.9,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "rice",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1404,
+        "name": "Dish 4",
+        "price": 11.84,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "lettuce",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1405,
+        "name": "Dish 5",
+        "price": 10.75,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "bun",
+          "beef"
+        ]
+      },
+      {
+        "id": 1406,
+        "name": "Dish 6",
+        "price": 6.31,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "avocado",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1407,
+        "name": "Dish 7",
+        "price": 8.45,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "avocado",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1408,
+        "name": "Dish 8",
+        "price": 9.87,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "seaweed",
+          "beef"
+        ]
+      },
+      {
+        "id": 1409,
+        "name": "Dish 9",
+        "price": 10.68,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "rice",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1410,
+        "name": "Dish 10",
+        "price": 9.74,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "salmon",
+          "tomato"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Healthy Bites",
+    "logo": "/images/restaurantLogo.png",
+    "address": "81 Main Street, Baku",
+    "rating": 4.0,
+    "categories": [
+      "Sushi",
+      "Seafood",
+      "Healthy"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 1501,
+        "name": "Dish 1",
+        "price": 14.79,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "rice",
+          "bun"
+        ]
+      },
+      {
+        "id": 1502,
+        "name": "Dish 2",
+        "price": 8.82,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "tomato",
+          "bun"
+        ]
+      },
+      {
+        "id": 1503,
+        "name": "Dish 3",
+        "price": 9.18,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "salmon",
+          "cheese"
+        ]
+      },
+      {
+        "id": 1504,
+        "name": "Dish 4",
+        "price": 11.12,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "seaweed",
+          "bun"
+        ]
+      },
+      {
+        "id": 1505,
+        "name": "Dish 5",
+        "price": 11.39,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "bun",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1506,
+        "name": "Dish 6",
+        "price": 12.04,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "salmon",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1507,
+        "name": "Dish 7",
+        "price": 8.07,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "cheese",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1508,
+        "name": "Dish 8",
+        "price": 11.14,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "onions",
+          "bun"
+        ]
+      },
+      {
+        "id": 1509,
+        "name": "Dish 9",
+        "price": 14.49,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "rice",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1510,
+        "name": "Dish 10",
+        "price": 7.47,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "cheese",
+          "beef"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Waffle World",
+    "logo": "/images/restaurantLogo.png",
+    "address": "26 Main Street, Baku",
+    "rating": 4.7,
+    "categories": [
+      "Asian",
+      "Seafood",
+      "Grill"
+    ],
+    "deals": [
+      {
+        "id": 161,
+        "title": "40% Off Sushi",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 26% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 1601,
+        "name": "Dish 1",
+        "price": 9.46,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "avocado",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1602,
+        "name": "Dish 2",
+        "price": 13.58,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "tomato",
+          "rice"
+        ]
+      },
+      {
+        "id": 1603,
+        "name": "Dish 3",
+        "price": 10.81,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "lettuce",
+          "rice"
+        ]
+      },
+      {
+        "id": 1604,
+        "name": "Dish 4",
+        "price": 8.92,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "avocado",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1605,
+        "name": "Dish 5",
+        "price": 7.19,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "avocado",
+          "bun"
+        ]
+      },
+      {
+        "id": 1606,
+        "name": "Dish 6",
+        "price": 7.34,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "rice",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1607,
+        "name": "Dish 7",
+        "price": 7.24,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "cheese",
+          "onions"
+        ]
+      },
+      {
+        "id": 1608,
+        "name": "Dish 8",
+        "price": 5.23,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "beef",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1609,
+        "name": "Dish 9",
+        "price": 7.72,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "avocado",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1610,
+        "name": "Dish 10",
+        "price": 5.4,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "rice",
+          "beef"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Cheesy Corner",
+    "logo": "/images/restaurantLogo.png",
+    "address": "14 Main Street, Baku",
+    "rating": 4.4,
+    "categories": [
+      "Healthy",
+      "Vegan",
+      "Fast Food"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 1701,
+        "name": "Dish 1",
+        "price": 14.22,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "avocado",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1702,
+        "name": "Dish 2",
+        "price": 5.5,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "tomato",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1703,
+        "name": "Dish 3",
+        "price": 7.81,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "tomato",
+          "bun"
+        ]
+      },
+      {
+        "id": 1704,
+        "name": "Dish 4",
+        "price": 12.88,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "bun",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1705,
+        "name": "Dish 5",
+        "price": 8.1,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "beef",
+          "bun"
+        ]
+      },
+      {
+        "id": 1706,
+        "name": "Dish 6",
+        "price": 13.89,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "salmon",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1707,
+        "name": "Dish 7",
+        "price": 6.07,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "salmon",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1708,
+        "name": "Dish 8",
+        "price": 14.67,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "lettuce",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1709,
+        "name": "Dish 9",
+        "price": 7.21,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "salmon",
+          "rice"
+        ]
+      },
+      {
+        "id": 1710,
+        "name": "Dish 10",
+        "price": 8.22,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "onions",
+          "bun"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Bistro Lux",
+    "logo": "/images/restaurantLogo.png",
+    "address": "68 Main Street, Baku",
+    "rating": 4.0,
+    "categories": [
+      "Grill",
+      "Healthy",
+      "Desserts",
+      "Burgers"
+    ],
+    "deals": [
+      {
+        "id": 181,
+        "title": "16% Off Drinks",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 12% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 1801,
+        "name": "Dish 1",
+        "price": 5.9,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "onions",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1802,
+        "name": "Dish 2",
+        "price": 11.01,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "bun",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1803,
+        "name": "Dish 3",
+        "price": 13.45,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "tomato",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1804,
+        "name": "Dish 4",
+        "price": 8.89,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "rice",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1805,
+        "name": "Dish 5",
+        "price": 9.8,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "avocado",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1806,
+        "name": "Dish 6",
+        "price": 9.74,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "cheese",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1807,
+        "name": "Dish 7",
+        "price": 10.49,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "seaweed",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1808,
+        "name": "Dish 8",
+        "price": 14.38,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "salmon",
+          "seaweed"
+        ]
+      },
+      {
+        "id": 1809,
+        "name": "Dish 9",
+        "price": 8.64,
+        "image": "/images/food.png",
+        "ingredients": [
+          "avocado",
+          "onions",
+          "bun"
+        ]
+      },
+      {
+        "id": 1810,
+        "name": "Dish 10",
+        "price": 7.28,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "avocado",
+          "bun"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Bakery Bliss",
+    "logo": "/images/restaurantLogo.png",
+    "address": "28 Main Street, Baku",
+    "rating": 3.6,
+    "categories": [
+      "Bakery",
+      "Asian"
+    ],
+    "deals": [],
+    "menu": [
+      {
+        "id": 1901,
+        "name": "Dish 1",
+        "price": 8.3,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "lettuce",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1902,
+        "name": "Dish 2",
+        "price": 12.37,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "onions",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 1903,
+        "name": "Dish 3",
+        "price": 10.71,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "lettuce",
+          "avocado"
+        ]
+      },
+      {
+        "id": 1904,
+        "name": "Dish 4",
+        "price": 10.97,
+        "image": "/images/food.png",
+        "ingredients": [
+          "salmon",
+          "lettuce",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1905,
+        "name": "Dish 5",
+        "price": 6.11,
+        "image": "/images/food.png",
+        "ingredients": [
+          "cheese",
+          "salmon",
+          "onions"
+        ]
+      },
+      {
+        "id": 1906,
+        "name": "Dish 6",
+        "price": 11.25,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "salmon",
+          "tomato"
+        ]
+      },
+      {
+        "id": 1907,
+        "name": "Dish 7",
+        "price": 6.24,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "bun",
+          "cheese"
+        ]
+      },
+      {
+        "id": 1908,
+        "name": "Dish 8",
+        "price": 11.93,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "onions",
+          "cheese"
+        ]
+      },
+      {
+        "id": 1909,
+        "name": "Dish 9",
+        "price": 13.35,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "beef",
+          "salmon"
+        ]
+      },
+      {
+        "id": 1910,
+        "name": "Dish 10",
+        "price": 9.96,
+        "image": "/images/food.png",
+        "ingredients": [
+          "beef",
+          "seaweed",
+          "salmon"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Meat & More",
+    "logo": "/images/restaurantLogo.png",
+    "address": "43 Main Street, Baku",
+    "rating": 4.4,
+    "categories": [
+      "Pizza",
+      "Seafood",
+      "Burgers",
+      "Middle Eastern"
+    ],
+    "deals": [
+      {
+        "id": 201,
+        "title": "14% Off Sushi",
+        "image": "/images/deal.png",
+        "description": "Enjoy a 36% discount on select items!"
+      }
+    ],
+    "menu": [
+      {
+        "id": 2001,
+        "name": "Dish 1",
+        "price": 9.11,
+        "image": "/images/food.png",
+        "ingredients": [
+          "lettuce",
+          "tomato",
+          "cheese"
+        ]
+      },
+      {
+        "id": 2002,
+        "name": "Dish 2",
+        "price": 14.41,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "salmon",
+          "rice"
+        ]
+      },
+      {
+        "id": 2003,
+        "name": "Dish 3",
+        "price": 11.69,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "cheese",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 2004,
+        "name": "Dish 4",
+        "price": 12.11,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "seaweed",
+          "rice"
+        ]
+      },
+      {
+        "id": 2005,
+        "name": "Dish 5",
+        "price": 14.81,
+        "image": "/images/food.png",
+        "ingredients": [
+          "onions",
+          "bun",
+          "lettuce"
+        ]
+      },
+      {
+        "id": 2006,
+        "name": "Dish 6",
+        "price": 10.33,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "rice",
+          "onions"
+        ]
+      },
+      {
+        "id": 2007,
+        "name": "Dish 7",
+        "price": 14.84,
+        "image": "/images/food.png",
+        "ingredients": [
+          "rice",
+          "cheese",
+          "bun"
+        ]
+      },
+      {
+        "id": 2008,
+        "name": "Dish 8",
+        "price": 9.27,
+        "image": "/images/food.png",
+        "ingredients": [
+          "bun",
+          "salmon",
+          "beef"
+        ]
+      },
+      {
+        "id": 2009,
+        "name": "Dish 9",
+        "price": 7.51,
+        "image": "/images/food.png",
+        "ingredients": [
+          "tomato",
+          "seaweed",
+          "beef"
+        ]
+      },
+      {
+        "id": 2010,
+        "name": "Dish 10",
+        "price": 13.02,
+        "image": "/images/food.png",
+        "ingredients": [
+          "seaweed",
+          "salmon",
+          "rice"
+        ]
+      }
+    ]
+  }
+]
