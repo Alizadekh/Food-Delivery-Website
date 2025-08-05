@@ -15,8 +15,8 @@ This is a modern, responsive, and interactive web application built using **Next
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Alizadekh/Food-Delivery-Website.git
+cd my-app
 npm install
 ```
 
@@ -62,10 +62,4 @@ public/                    # Static assets
 
 See `package.json` for full list.
 
-## 📝 License
-
-This project is licensed under the MIT License.
-
----
-
-Made with ❤️ using Next.js and Tailwind CSS.
+Made by Alizadekh ❤️ using Next.js and Tailwind CSS.
