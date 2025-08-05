@@ -9,6 +9,8 @@ import "swiper/css/navigation";
 import Link from "next/link";
 import restaurantsData from "../../data/restaurants.json";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import catImg from "../../assets/img/food.png";
 
 type Category = {
