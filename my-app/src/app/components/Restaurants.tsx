@@ -100,7 +100,7 @@ function Restaurants() {
             <button
               title="Previous restaurants"
               aria-label="Go to previous restaurants"
-              className="swiper-button-prev-restaurants group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
+              className="cursor-pointer swiper-button-prev-restaurants group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
             >
               <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
               <span className="sr-only">Previous restaurants</span>
@@ -111,7 +111,7 @@ function Restaurants() {
             <button
               title="Next restaurants"
               aria-label="Go to next restaurants"
-              className="swiper-button-next-restaurants group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
+              className="cursor-pointer swiper-button-next-restaurants group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
             >
               <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
               <span className="sr-only">Next restaurants</span>
@@ -204,7 +204,7 @@ function Restaurants() {
 
                             <button
                               onClick={(e) => toggleFavorite(restaurant.id, e)}
-                              className={`absolute top-3 right-3 p-2 rounded-full transition-all duration-300 transform hover:scale-110 ${
+                              className={`cursor-pointer absolute top-3 right-3 p-2 rounded-full transition-all duration-300 transform hover:scale-110 ${
                                 favorites.has(restaurant.id)
                                   ? "bg-red-500 text-white shadow-lg"
                                   : "bg-white/90 text-gray-600 hover:bg-white hover:text-red-500"

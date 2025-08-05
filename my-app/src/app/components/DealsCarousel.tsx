@@ -77,7 +77,7 @@ function DealsCarousel() {
               <button
                 key={cat.key}
                 onClick={() => handleCategoryClick(cat.key as any)}
-                className={`group relative px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold font-['Poppins'] transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                className={`cursor-pointer group relative px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold font-['Poppins'] transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                   category === cat.key
                     ? "bg-gradient-to-r from-orange-400 to-amber-500 text-white shadow-lg shadow-orange-200"
                     : "bg-white text-gray-700 border-2 border-gray-200 hover:border-orange-300 hover:text-orange-500 hover:shadow-md"
@@ -109,7 +109,7 @@ function DealsCarousel() {
           <div className="hidden sm:flex absolute top-1/2 -translate-y-1/2 -right-4 lg:-right-12 z-20">
             <button
               title="click"
-              className="swiper-button-next-custom group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
+              className="cursor-pointer swiper-button-next-custom group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
             >
               <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
             </button>
@@ -230,7 +230,7 @@ function DealsCarousel() {
                                 : "opacity-0 translate-y-2"
                             }`}
                           >
-                            <button className="bg-white text-orange-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-50 transition-colors duration-300 shadow-md">
+                            <button className="cursor-pointer bg-white text-orange-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-50 transition-colors duration-300 shadow-md">
                               View Menu →
                             </button>
                           </div>

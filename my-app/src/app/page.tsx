@@ -4,6 +4,8 @@ import DealsCarousel from "./components/DealsCarousel";
 import Restaurants from "./components/Restaurants";
 import Categories from "./components/Categories";
 import HeroSection from "./components/HeroSection";
+import FAQSection from "./components/FAQ";
+import Stats from "./components/Stats";
 
 export default function Home() {
   return (
@@ -19,6 +21,12 @@ export default function Home() {
       </section>
       <section>
         <Categories />
+      </section>
+      <section>
+        <FAQSection />
+      </section>
+      <section>
+        <Stats />
       </section>
     </main>
   );

@@ -68,7 +68,7 @@ const Header = () => {
               <button
                 type="button"
                 title="changeLocation"
-                className="ml-3 text-orange-400 cursor-pointer hover:underline transition-colors duration-300"
+                className="ml-3 text-orange-400 cursor-pointer hover:underline transition-colors duration-300 cursor-pointer"
               >
                 Change Location
               </button>
@@ -93,7 +93,7 @@ const Header = () => {
               <div>
                 <button
                   title="checkout"
-                  className="flex items-center gap-1 text-xl border-l-2 pl-2 xl:pl-4 hover:text-orange-300 transition-colors duration-300"
+                  className="flex items-center gap-1 text-xl border-l-2 pl-2 xl:pl-4 hover:text-orange-300 transition-colors duration-300 cursor-pointer"
                 >
                   <FaCircleArrowDown />
                 </button>
@@ -107,7 +107,7 @@ const Header = () => {
           <div className="flex justify-center">
             <button
               onClick={toggleModal}
-              className="bg-green-700 hover:bg-green-800 transition-all duration-300 rounded-lg px-4 py-2 text-white font-medium font-['Poppins'] flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
+              className="bg-green-700 cursor-pointer hover:bg-green-800 transition-all duration-300 rounded-lg px-4 py-2 text-white font-medium font-['Poppins'] flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
             >
               <TbBasketCheck className="text-lg" />
               <span className="text-sm">3 Items • 23 AZN</span>
@@ -159,7 +159,7 @@ const Header = () => {
           <div className="lg:hidden">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 cursor-pointer"
               aria-label="Toggle menu"
             >
               <div className="relative w-6 h-6">
@@ -199,7 +199,7 @@ const Header = () => {
             <div className="flex justify-end mb-8">
               <button
                 onClick={closeMenu}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-300 cursor-pointer"
                 aria-label="Close menu"
               >
                 <AiOutlineClose className="text-2xl text-gray-600" />
@@ -281,7 +281,7 @@ const Header = () => {
               </h3>
               <button
                 onClick={toggleModal}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-300 cursor-pointer"
                 aria-label="Close modal"
               >
                 <AiOutlineClose className="text-xl text-gray-600" />
@@ -312,7 +312,7 @@ const Header = () => {
                 <button
                   type="button"
                   title="changeLocation"
-                  className="text-orange-500 text-sm font-medium hover:underline transition-colors duration-300"
+                  className="text-orange-500 text-sm font-medium hover:underline transition-colors duration-300 cursor-pointer"
                 >
                   Change Location
                 </button>
@@ -329,7 +329,7 @@ const Header = () => {
                   </div>
                   <button
                     title="checkout"
-                    className="bg-green-800 hover:bg-green-900 rounded-lg p-3 transition-colors duration-300"
+                    className="bg-green-800 hover:bg-green-900 rounded-lg p-3 transition-colors duration-300 cursor-pointer"
                   >
                     <FaCircleArrowDown className="text-xl" />
                   </button>

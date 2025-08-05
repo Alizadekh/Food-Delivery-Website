@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Providers from "./providers";
 import ClientHeaderWrapper from "./components/ClientHeaderWrapper";
+import ClientFooterWrapper from "./components/ClientFooterWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Providers>
           <ClientHeaderWrapper />
           {children}
+          <ClientFooterWrapper />
         </Providers>
       </body>
     </html>

@@ -59,7 +59,7 @@ export default function HeroSection() {
                     <input
                       title="search"
                       type="text"
-                      className="bg-white h-12 sm:h-14 lg:h-16 w-full rounded-full border-2 border-black/20 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 px-5 sm:px-6 text-sm sm:text-base placeholder:text-gray-400 shadow-sm hover:shadow-md"
+                      className="bg-white h-12 sm:h-14 lg:h-16 w-full rounded-full border-2 border-black/20 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 px-5 sm:px-6 text-sm sm:text-base placeholder:text-gray-400 shadow-sm hover:shadow-md outline-none focus:outline-none"
                       placeholder="ex: AZ1045"
                     />
                   </div>
@@ -67,7 +67,7 @@ export default function HeroSection() {
                   <button
                     type="button"
                     title="searchButton"
-                    className="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 h-12 sm:h-14 lg:h-16 rounded-full px-6 sm:px-8 lg:px-10 text-white text-sm sm:text-base lg:text-lg font-semibold font-['Poppins'] transition-all duration-300 w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
+                    className="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 h-12 sm:h-14 lg:h-16 rounded-full px-6 sm:px-8 lg:px-10 text-white text-sm sm:text-base lg:text-lg font-semibold font-['Poppins'] transition-all duration-300 w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     Search
                   </button>

@@ -83,7 +83,7 @@ function Categories() {
           <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -left-6 z-20">
             <button
               title="click"
-              className="swiper-button-prev-categories group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
+              className="cursor-pointer swiper-button-prev-categories group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
             >
               <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
             </button>
@@ -92,7 +92,7 @@ function Categories() {
           <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -right-6 z-20">
             <button
               title="click"
-              className="swiper-button-next-categories group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
+              className="cursor-pointer swiper-button-next-categories group bg-white hover:bg-orange-400 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
             >
               <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
             </button>
@@ -200,7 +200,7 @@ function Categories() {
                                 : "opacity-0 max-h-0 overflow-hidden"
                             }`}
                           >
-                            <button className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-white py-2 rounded-lg text-sm font-semibold hover:from-orange-500 hover:to-red-600 transition-all duration-300 transform hover:scale-105">
+                            <button className="cursor-pointer w-full bg-gradient-to-r from-orange-400 to-red-500 text-white py-2 rounded-lg text-sm font-semibold hover:from-orange-500 hover:to-red-600 transition-all duration-300 transform hover:scale-105">
                               Explore Category
                             </button>
                           </div>
