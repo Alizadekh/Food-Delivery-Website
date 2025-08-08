@@ -216,7 +216,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    href="/restaurants"
+                    href="/pages/restaurants"
                     onClick={closeMenu}
                     className="block p-4 rounded-lg hover:bg-orange-400 hover:text-white transition-all duration-300 text-black text-lg font-medium font-['Poppins'] transform hover:scale-105"
                   >
