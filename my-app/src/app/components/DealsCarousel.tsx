@@ -55,7 +55,7 @@ function DealsCarousel() {
   };
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+    <section className=" py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8 sm:mb-12 gap-6">
           <div className="text-center lg:text-left">

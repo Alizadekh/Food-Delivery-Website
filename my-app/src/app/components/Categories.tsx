@@ -73,10 +73,10 @@ function Categories() {
           </div>
 
           <Link
-            href="/categories"
+            href="/restaurants"
             className="group inline-flex items-center gap-2 px-6 py-3 text-sm sm:text-base font-semibold rounded-full border-2 border-orange-400 text-orange-500 hover:bg-orange-400 hover:text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
           >
-            <span>Hamısını göstər</span>
+            <span>View All</span>
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>

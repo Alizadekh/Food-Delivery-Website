@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
-// Importing the logo image and icons
 import logo from "../../assets/img/logo.png";
 import { BiSolidOffer } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
@@ -125,11 +124,9 @@ const Header = () => {
               <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
                 <Link href="/">Home</Link>
               </li>
+
               <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
-                <Link href="/special">Special Offers</Link>
-              </li>
-              <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
-                <Link href="/restaurants">Restaurants</Link>
+                <Link href="/pages/restaurants">Restaurants</Link>
               </li>
               <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
                 <Link href="/track">Track Order</Link>
@@ -215,15 +212,6 @@ const Header = () => {
                     className="block p-4 rounded-lg hover:bg-orange-400 hover:text-white transition-all duration-300 text-black text-lg font-medium font-['Poppins'] transform hover:scale-105"
                   >
                     Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/special"
-                    onClick={closeMenu}
-                    className="block p-4 rounded-lg hover:bg-orange-400 hover:text-white transition-all duration-300 text-black text-lg font-medium font-['Poppins'] transform hover:scale-105"
-                  >
-                    Special Offers
                   </Link>
                 </li>
                 <li>
