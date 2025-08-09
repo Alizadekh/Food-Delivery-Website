@@ -1,22 +1,85 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { useCart } from "../../contexts/CartContext";
 
 import logo from "../../assets/img/logo.png";
 import { BiSolidOffer } from "react-icons/bi";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot, FaLocationArrow } from "react-icons/fa6";
 import { TbBasketCheck } from "react-icons/tb";
 import { FaCircleArrowDown } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt3 } from "react-icons/hi";
+import { MapPin, Percent, Trash2, Plus, Minus } from "lucide-react";
+
+type LocationData = {
+  address: string;
+  city: string;
+  country: string;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+  const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
+
+  // Context-dən məlumatları götürürük
+  const {
+    state,
+    updateQuantity,
+    removeItem,
+    toggleModal,
+    applyPromo,
+    removePromo,
+  } = useCart();
+
+  const [location, setLocation] = useState<LocationData>({
+    address: "Regent Street, A4, A4201",
+    city: "London",
+    country: "UK",
+  });
+  const [customAddress, setCustomAddress] = useState("");
+  const [isDetectingLocation, setIsDetectingLocation] = useState(false);
+  const [promoInput, setPromoInput] = useState("");
+
+  // Available olan promo codelar
+  const availablePromoCodes = [
+    {
+      id: "1",
+      code: "ORDER5",
+      discount: 5,
+      type: "percentage" as const,
+      description: "Get 5% off your first order",
+      minOrder: 0,
+      expiryDate: "2024-12-31",
+    },
+    {
+      id: "2",
+      code: "WELCOME10",
+      discount: 10,
+      type: "percentage" as const,
+      description: "10% off for new customers",
+      minOrder: 20,
+      expiryDate: "2024-12-31",
+    },
+    {
+      id: "3",
+      code: "SAVE3",
+      discount: 3,
+      type: "fixed" as const,
+      description: "$3 off any order",
+      minOrder: 15,
+      expiryDate: "2024-12-31",
+    },
+  ];
 
   const { isAuthenticated, user } = useSelector(
     (state: RootState) =>
@@ -30,12 +93,118 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const detectCurrentLocation = async () => {
+    setIsDetectingLocation(true);
+
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by this browser");
+      setIsDetectingLocation(false);
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        try {
+          const response = await fetch(
+            `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            const result = data.results[0];
+
+            if (result) {
+              setLocation({
+                address: result.formatted || `${latitude}, ${longitude}`,
+                city:
+                  result.components.city ||
+                  result.components.town ||
+                  "Unknown City",
+                country: result.components.country || "Unknown Country",
+                coordinates: { lat: latitude, lng: longitude },
+              });
+            }
+          } else {
+            setLocation({
+              address: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`,
+              city: "Current Location",
+              country: "",
+              coordinates: { lat: latitude, lng: longitude },
+            });
+          }
+        } catch (error) {
+          console.error("Error getting address:", error);
+          setLocation({
+            address: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`,
+            city: "Current Location",
+            country: "",
+            coordinates: { lat: latitude, lng: longitude },
+          });
+        }
+
+        setIsDetectingLocation(false);
+        setIsLocationModalOpen(false);
+      },
+      (error) => {
+        console.error("Error getting location:", error);
+        alert("Unable to detect location. Please enter manually.");
+        setIsDetectingLocation(false);
+      },
+      { timeout: 10000, enableHighAccuracy: true }
+    );
+  };
+
+  const updateCustomLocation = () => {
+    if (customAddress.trim()) {
+      setLocation({
+        address: customAddress,
+        city: customAddress.split(",")[1]?.trim() || "Unknown City",
+        country: customAddress.split(",")[2]?.trim() || "Unknown Country",
+      });
+      setCustomAddress("");
+      setIsLocationModalOpen(false);
+    }
+  };
+
+  const applyPromoCode = () => {
+    const promo = availablePromoCodes.find(
+      (p) => p.code.toLowerCase() === promoInput.toLowerCase()
+    );
+    if (promo) {
+      const success = applyPromo(promo);
+      if (success) {
+        setPromoInput("");
+        setIsPromoModalOpen(false);
+      } else {
+        alert(
+          `Minimum order of $${promo.minOrder} required for this promo code`
+        );
+      }
+    } else {
+      alert("Invalid promo code");
+    }
+  };
+
+  const removePromoCode = () => {
+    removePromo();
+  };
+
+  const updateCartQuantity = (id: number, change: number) => {
+    const currentItem = state.items.find((item) => item.id === id);
+    if (currentItem) {
+      const newQuantity = currentItem.quantity + change;
+      if (newQuantity <= 0) {
+        removeItem(id);
+      } else {
+        updateQuantity(id, newQuantity);
+      }
+    }
   };
 
   return (
@@ -60,19 +229,22 @@ const Header = () => {
                   <FaLocationDot />
                 </span>
                 <span className="hidden xl:inline">
-                  Regent Street, A4, A4201, London
+                  {location.address}, {location.city}
                 </span>
-                <span className="xl:hidden">London</span>
+                <span className="xl:hidden">{location.city}</span>
               </p>
               <button
                 type="button"
-                title="changeLocation"
-                className="ml-3 text-orange-400 cursor-pointer hover:underline transition-colors duration-300 cursor-pointer"
+                onClick={() => setIsLocationModalOpen(true)}
+                className="ml-3 text-orange-400 cursor-pointer hover:underline transition-colors duration-300"
               >
                 Change Location
               </button>
             </div>
-            <div className="bg-green-700 rounded-xl border p-3 xl:p-4 border-black/10 flex items-center gap-2 xl:gap-4 justify-between text-white text-sm xl:text-base font-medium font-['Poppins'] cursor-pointer hover:bg-green-800 transition-colors duration-300">
+            <div
+              className="bg-green-700 rounded-xl border p-3 xl:p-4 border-black/10 flex items-center gap-2 xl:gap-4 justify-between text-white text-sm xl:text-base font-medium font-['Poppins'] cursor-pointer hover:bg-green-800 transition-colors duration-300"
+              onClick={toggleModal}
+            >
               <div className="border-r-2 pr-2 xl:pr-4">
                 <span className="text-xl xl:text-2xl">
                   <TbBasketCheck />
@@ -81,12 +253,12 @@ const Header = () => {
               <div className="border-r-2 pr-2 xl:pr-4">
                 <p className="flex items-center gap-1">
                   Items:
-                  <span>3</span>
+                  <span>{state.itemCount}</span>
                 </p>
               </div>
               <div>
                 <p>
-                  <span>23</span> AZN
+                  <span>{state.total.toFixed(2)}</span> AZN
                 </p>
               </div>
               <div>
@@ -101,7 +273,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile/Tablet üst header - sadə yaşıl buton */}
+        {/* Mobile/Tablet üst header - Cart Button */}
         <div className="lg:hidden w-full px-4 py-2 bg-neutral-50 border-b border-black/10">
           <div className="flex justify-center">
             <button
@@ -109,7 +281,9 @@ const Header = () => {
               className="bg-green-700 cursor-pointer hover:bg-green-800 transition-all duration-300 rounded-lg px-4 py-2 text-white font-medium font-['Poppins'] flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
             >
               <TbBasketCheck className="text-lg" />
-              <span className="text-sm">3 Items • 23 AZN</span>
+              <span className="text-sm">
+                {state.itemCount} Items • {state.total.toFixed(2)} AZN
+              </span>
             </button>
           </div>
         </div>
@@ -124,7 +298,6 @@ const Header = () => {
               <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
                 <Link href="/">Home</Link>
               </li>
-
               <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
                 <Link href="/pages/restaurants">Restaurants</Link>
               </li>
@@ -187,6 +360,7 @@ const Header = () => {
           onClick={closeMenu}
         />
 
+        {/* Mobile Menu */}
         <div
           className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 transform transition-transform duration-300 ease-in-out shadow-2xl ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -260,12 +434,13 @@ const Header = () => {
         </div>
       </header>
 
-      {isModalOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-md mx-auto transform transition-all duration-300 scale-100 opacity-100">
+      {/* Cart Modal - Context state istifadə edilir  */}
+      {state.isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl w-full max-w-md mx-auto max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-100 opacity-100">
             <div className="flex justify-between items-center p-6 border-b border-gray-200">
               <h3 className="text-lg font-semibold font-['Poppins'] text-gray-800">
-                Order Details
+                Cart Details
               </h3>
               <button
                 onClick={toggleModal}
@@ -276,51 +451,297 @@ const Header = () => {
               </button>
             </div>
 
-            <div className="p-6 space-y-4">
-              <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
-                <p className="flex items-center text-gray-800 text-sm font-medium font-['Poppins']">
-                  <span className="mr-2 text-orange-400">
-                    <BiSolidOffer />
-                  </span>
-                  Get <span className="mx-1 font-bold">5%</span> Off your first
-                  order
-                </p>
-                <p className="text-orange-600 font-semibold mt-1">
-                  PROMO: ORDER5
-                </p>
-              </div>
+            <div className="overflow-y-auto max-h-[60vh]">
+              <div className="p-6 space-y-4">
+                <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                  <p className="flex items-center text-gray-800 text-sm font-medium font-['Poppins']">
+                    <span className="mr-2 text-orange-400">
+                      <BiSolidOffer />
+                    </span>
+                    Get <span className="mx-1 font-bold">5%</span> Off your
+                    first order
+                  </p>
+                  <div className="flex items-center justify-between mt-2">
+                    <p className="text-orange-600 font-semibold">
+                      PROMO: ORDER5
+                    </p>
+                    <button
+                      onClick={() => setIsPromoModalOpen(true)}
+                      className="text-orange-500 text-sm font-medium hover:underline"
+                    >
+                      View All Codes
+                    </button>
+                  </div>
+                  {state.activePromo && (
+                    <div className="mt-2 p-2 bg-green-100 rounded flex items-center justify-between">
+                      <span className="text-green-700 text-sm font-medium">
+                        {state.activePromo.code} Applied! -
+                        {state.activePromo.type === "percentage"
+                          ? `${state.activePromo.discount}%`
+                          : `${state.activePromo.discount}`}
+                      </span>
+                      <button
+                        title="button"
+                        onClick={removePromoCode}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <AiOutlineClose className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
+                </div>
 
-              <div className="bg-gray-50 rounded-lg p-4">
-                <p className="flex items-center text-gray-800 text-sm font-medium font-['Poppins'] mb-2">
-                  <span className="mr-2 text-gray-600">
-                    <FaLocationDot />
-                  </span>
-                  Regent Street, A4, A4201, London
-                </p>
-                <button
-                  type="button"
-                  title="changeLocation"
-                  className="text-orange-500 text-sm font-medium hover:underline transition-colors duration-300 cursor-pointer"
-                >
-                  Change Location
-                </button>
-              </div>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <p className="flex items-center text-gray-800 text-sm font-medium font-['Poppins'] mb-2">
+                    <span className="mr-2 text-gray-600">
+                      <FaLocationDot />
+                    </span>
+                    {location.address}, {location.city}
+                  </p>
+                  <button
+                    onClick={() => setIsLocationModalOpen(true)}
+                    className="text-orange-500 text-sm font-medium hover:underline transition-colors duration-300 cursor-pointer"
+                  >
+                    Change Location
+                  </button>
+                </div>
 
-              <div className="bg-green-700 rounded-lg p-4 text-white">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <TbBasketCheck className="text-2xl" />
-                    <div>
-                      <p className="text-sm font-medium">Items: 3</p>
-                      <p className="text-lg font-bold">23 AZN</p>
+                {/* Cart Items - Context state-dən gəlir */}
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-800">Order Items</h4>
+                  {state.items.length === 0 ? (
+                    <p className="text-gray-500 text-center py-4">
+                      Your cart is empty
+                    </p>
+                  ) : (
+                    state.items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                      >
+                        <div className="flex-1">
+                          <h5 className="font-medium text-gray-800">
+                            {item.name}
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            ${item.price.toFixed(2)} each
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            from {item.restaurantName}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <button
+                            title="button"
+                            onClick={() => updateCartQuantity(item.id, -1)}
+                            className="p-1 rounded bg-gray-200 hover:bg-gray-300 transition-colors"
+                          >
+                            <Minus className="w-3 h-3" />
+                          </button>
+                          <span className="font-semibold min-w-[1.5rem] text-center">
+                            {item.quantity}
+                          </span>
+                          <button
+                            title="button"
+                            onClick={() => updateCartQuantity(item.id, 1)}
+                            className="p-1 rounded bg-gray-200 hover:bg-gray-300 transition-colors"
+                          >
+                            <Plus className="w-3 h-3" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+
+                {state.items.length > 0 && (
+                  <div className="bg-white border rounded-lg p-4 space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span>Subtotal:</span>
+                      <span>${state.subtotal.toFixed(2)}</span>
+                    </div>
+                    {state.discount > 0 && (
+                      <div className="flex justify-between text-sm text-green-600">
+                        <span>Discount ({state.activePromo?.code}):</span>
+                        <span>-${state.discount.toFixed(2)}</span>
+                      </div>
+                    )}
+                    <div className="border-t pt-2 flex justify-between font-bold">
+                      <span>Total:</span>
+                      <span className="text-green-600">
+                        ${state.total.toFixed(2)}
+                      </span>
                     </div>
                   </div>
+                )}
+
+                {state.items.length > 0 && (
+                  <div className="bg-green-700 rounded-lg p-4 text-white">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <TbBasketCheck className="text-2xl" />
+                        <div>
+                          <p className="text-sm font-medium">
+                            Items: {state.itemCount}
+                          </p>
+                          <p className="text-lg font-bold">
+                            ${state.total.toFixed(2)}
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        title="checkout"
+                        className="bg-green-800 hover:bg-green-900 rounded-lg p-3 transition-colors duration-300 cursor-pointer"
+                      >
+                        <FaCircleArrowDown className="text-xl" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isLocationModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl w-full max-w-md transform transition-all duration-300">
+            <div className="flex justify-between items-center p-6 border-b">
+              <h3 className="text-xl font-bold text-gray-800">
+                Change Location
+              </h3>
+              <button
+                title="button"
+                onClick={() => setIsLocationModalOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <AiOutlineClose className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-4">
+              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                <h4 className="font-semibold text-blue-800 mb-2">
+                  Current Location
+                </h4>
+                <p className="text-blue-700 text-sm">
+                  {location.address}, {location.city}
+                </p>
+              </div>
+
+              <button
+                onClick={detectCurrentLocation}
+                disabled={isDetectingLocation}
+                className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-medium transition-colors"
+              >
+                <FaLocationArrow
+                  className={`w-4 h-4 ${
+                    isDetectingLocation ? "animate-spin" : ""
+                  }`}
+                />
+                {isDetectingLocation ? "Detecting..." : "Use Current Location"}
+              </button>
+
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white text-gray-500">OR</span>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <input
+                  type="text"
+                  value={customAddress}
+                  onChange={(e) => setCustomAddress(e.target.value)}
+                  placeholder="Enter custom address..."
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none"
+                />
+                <button
+                  onClick={updateCustomLocation}
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-medium transition-colors"
+                >
+                  Update Location
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isPromoModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl w-full max-w-md max-h-[90vh] overflow-hidden">
+            <div className="flex justify-between items-center p-6 border-b">
+              <h3 className="text-xl font-bold text-gray-800">Promo Codes</h3>
+              <button
+                title="button"
+                onClick={() => setIsPromoModalOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <AiOutlineClose className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto max-h-[70vh]">
+              <div className="p-6 space-y-4">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={promoInput}
+                    onChange={(e) =>
+                      setPromoInput(e.target.value.toUpperCase())
+                    }
+                    placeholder="Enter promo code"
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none"
+                  />
                   <button
-                    title="checkout"
-                    className="bg-green-800 hover:bg-green-900 rounded-lg p-3 transition-colors duration-300 cursor-pointer"
+                    onClick={applyPromoCode}
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
                   >
-                    <FaCircleArrowDown className="text-xl" />
+                    Apply
                   </button>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-800">
+                    Available Codes
+                  </h4>
+                  {availablePromoCodes.map((promo) => (
+                    <div
+                      key={promo.id}
+                      className="border rounded-lg p-4 hover:border-orange-200 transition-colors"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <Percent className="w-4 h-4 text-orange-500" />
+                          <span className="font-bold text-orange-600">
+                            {promo.code}
+                          </span>
+                        </div>
+                        <button
+                          onClick={() => {
+                            setPromoInput(promo.code);
+                            applyPromoCode();
+                          }}
+                          className="text-sm bg-orange-100 hover:bg-orange-200 text-orange-600 px-3 py-1 rounded-full transition-colors"
+                        >
+                          Apply
+                        </button>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-1">
+                        {promo.description}
+                      </p>
+                      {promo.minOrder && (
+                        <p className="text-xs text-gray-500">
+                          Min order: ${promo.minOrder}
+                        </p>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

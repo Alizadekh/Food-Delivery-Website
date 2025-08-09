@@ -1,3 +1,5 @@
+import React from "react";
+import { useRouter } from "next/navigation";
 import { MapPin, Heart, Star, Percent } from "lucide-react";
 import profileImg from "../../../public/images/restaurantLogo.png";
 
@@ -32,6 +34,8 @@ const RestaurantCard = ({
   favorites,
   toggleFavorite,
 }: RestaurantCardProps) => {
+  const router = useRouter();
+
   const avgPrice =
     restaurant.menu && restaurant.menu.length > 0
       ? restaurant.menu.reduce((sum, item) => sum + item.price, 0) /
@@ -39,9 +43,21 @@ const RestaurantCard = ({
       : 0;
   const isFavorite = favorites.includes(restaurant.id);
 
+  const handleCardClick = () => {
+    router.push(`/pages/restaurants/${restaurant.id}`);
+  };
+
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    toggleFavorite(restaurant.id);
+  };
+
   if (isListView) {
     return (
-      <div className="bg-white rounded-2xl shadow-sm border hover:shadow-lg transition-all duration-300 p-6 hover:border-orange-200">
+      <div
+        className="bg-white rounded-2xl shadow-sm border hover:shadow-lg transition-all duration-300 p-6 hover:border-orange-200 cursor-pointer transform hover:-translate-y-1"
+        onClick={handleCardClick}
+      >
         <div className="flex gap-4">
           <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
             <div className="w-full h-full bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg ">
@@ -66,7 +82,7 @@ const RestaurantCard = ({
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between">
               <div className="flex-1">
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 hover:text-orange-600 transition-colors">
                   {restaurant.name}
                 </h3>
                 <div className="flex items-center gap-2 text-gray-600 mb-3">
@@ -77,11 +93,11 @@ const RestaurantCard = ({
 
               <div className="flex items-center gap-2 ml-4">
                 <button
-                  onClick={() => toggleFavorite(restaurant.id)}
+                  onClick={handleFavoriteClick}
                   title={
                     isFavorite ? "Remove from favorites" : "Add to favorites"
                   }
-                  className={`p-2 rounded-full transition-all duration-200 ${
+                  className={`p-2 rounded-full transition-all duration-200 hover:scale-110 ${
                     isFavorite
                       ? "text-red-500 bg-red-50"
                       : "text-gray-400 hover:text-red-500 hover:bg-red-50"
@@ -127,7 +143,10 @@ const RestaurantCard = ({
   }
 
   return (
-    <div className="bg-white cursor-pointer rounded-2xl shadow-sm border hover:shadow-xl transition-all duration-300 overflow-hidden group border-gray-200 hover:border-orange-200 hover:-translate-y-1">
+    <div
+      className="bg-white cursor-pointer rounded-2xl shadow-sm border hover:shadow-xl transition-all duration-300 overflow-hidden group border-gray-200 hover:border-orange-200 hover:-translate-y-2 transform"
+      onClick={handleCardClick}
+    >
       <div className="relative h-48 sm:h-56 overflow-hidden">
         <div className="w-full h-full bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 flex items-center justify-center">
           <span className="text-white text-3xl font-bold group-hover:scale-110 transition-transform duration-300">
@@ -150,8 +169,8 @@ const RestaurantCard = ({
 
         <button
           title="Toggle favorite"
-          onClick={() => toggleFavorite(restaurant.id)}
-          className={`cursor-pointer absolute top-4 right-4 p-2 rounded-full transition-all duration-200 backdrop-blur-sm ${
+          onClick={handleFavoriteClick}
+          className={`cursor-pointer absolute top-4 right-4 p-2 rounded-full transition-all duration-200 backdrop-blur-sm hover:scale-110 ${
             isFavorite
               ? "text-red-500 bg-white/90"
               : "text-white bg-black/20 hover:bg-white/90 hover:text-red-500"
@@ -218,6 +237,12 @@ const RestaurantCard = ({
             </div>
           </div>
         )}
+
+        <div className="mt-4 pt-3 border-t border-gray-100">
+          <div className="bg-orange-500 hover:bg-orange-600 text-white text-center py-2 px-4 rounded-lg font-medium transition-all duration-300 transform group-hover:scale-105 opacity-0 group-hover:opacity-100">
+            View Menu
+          </div>
+        </div>
       </div>
     </div>
   );

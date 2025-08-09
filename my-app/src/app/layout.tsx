@@ -5,6 +5,8 @@ import "./globals.css";
 import Providers from "./providers";
 import ClientHeaderWrapper from "./components/ClientHeaderWrapper";
 import ClientFooterWrapper from "./components/ClientFooterWrapper";
+import { CartProvider } from "../contexts/CartContext";
+import { LocationProvider } from "../contexts/LocationContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`antialiased`}>
         <Providers>
-          <ClientHeaderWrapper />
-          {children}
-          <ClientFooterWrapper />
+          <LocationProvider>
+            <CartProvider>
+              <ClientHeaderWrapper />
+              {children}
+              <ClientFooterWrapper />
+            </CartProvider>
+          </LocationProvider>
         </Providers>
       </body>
     </html>
