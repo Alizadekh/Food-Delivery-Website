@@ -5,7 +5,7 @@ import HeroRestaurant from "../../components/HeroRestaurant";
 import FilterPanel from "../../components/FilterRestaurant";
 import RestaurantCard from "../../components/RestaurantCard";
 import { FaRegClock as Clock } from "react-icons/fa";
-import MobileFilterModal from "../../components/MObileFilterModal";
+import MobileFilterModal from "../../components/MobileFilterModal";
 
 const RestaurantsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
