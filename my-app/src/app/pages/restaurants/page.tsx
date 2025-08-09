@@ -172,7 +172,7 @@ const RestaurantsPage = () => {
               <div className="text-center py-16">
                 <div className="text-8xl mb-6">🏪</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  No restaurants found
+                  Sorry, No restaurants found
                 </h3>
                 <p className="text-gray-600 mb-6">
                   Try adjusting your filters or search term to find more
