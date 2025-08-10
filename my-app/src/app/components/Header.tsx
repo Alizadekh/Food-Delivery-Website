@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { useCart } from "../../contexts/CartContext";
+import { useRouter } from "next/navigation";
 
 import logo from "../../assets/img/logo.png";
 import { BiSolidOffer } from "react-icons/bi";
@@ -30,6 +31,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
+  const router = useRouter();
 
   // Context-dən məlumatları götürürük
   const {
@@ -207,6 +209,31 @@ const Header = () => {
     }
   };
 
+  const handlePlaceOrder = () => {
+    if (state.items.length === 0) {
+      alert("Səbətiniz boşdur!");
+      return;
+    }
+
+    const orderData = {
+      id: Date.now().toString(),
+      items: state.items,
+      total: state.total,
+      subtotal: state.subtotal,
+      discount: state.discount,
+      activePromo: state.activePromo,
+      location: location,
+      timestamp: new Date().toISOString(),
+      status: "preparing",
+    };
+
+    localStorage.setItem("currentOrder", JSON.stringify(orderData));
+
+    toggleModal();
+
+    router.push("/pages/trackOrder");
+  };
+
   return (
     <>
       <header className="relative">
@@ -302,7 +329,7 @@ const Header = () => {
                 <Link href="/pages/restaurants">Restaurants</Link>
               </li>
               <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
-                <Link href="/track">Track Order</Link>
+                <Link href="/trackOrder">Track Order</Link>
               </li>
             </ul>
             <div className="p-4 rounded-[20px] bg-slate-950 hover:bg-slate-800 text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
@@ -399,7 +426,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    href="/track"
+                    href="/trackOrder"
                     onClick={closeMenu}
                     className="block p-4 rounded-lg hover:bg-orange-400 hover:text-white transition-all duration-300 text-black text-lg font-medium font-['Poppins'] transform hover:scale-105"
                   >
@@ -434,7 +461,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Cart Modal - Context state istifadə edilir  */}
       {state.isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl w-full max-w-md mx-auto max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-100 opacity-100">
@@ -506,7 +532,6 @@ const Header = () => {
                   </button>
                 </div>
 
-                {/* Cart Items - Context state-dən gəlir */}
                 <div className="space-y-3">
                   <h4 className="font-semibold text-gray-800">Order Items</h4>
                   {state.items.length === 0 ? (
@@ -576,25 +601,20 @@ const Header = () => {
                 )}
 
                 {state.items.length > 0 && (
-                  <div className="bg-green-700 rounded-lg p-4 text-white">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <TbBasketCheck className="text-2xl" />
-                        <div>
-                          <p className="text-sm font-medium">
-                            Items: {state.itemCount}
-                          </p>
-                          <p className="text-lg font-bold">
-                            ${state.total.toFixed(2)}
-                          </p>
-                        </div>
-                      </div>
-                      <button
-                        title="checkout"
-                        className="bg-green-800 hover:bg-green-900 rounded-lg p-3 transition-colors duration-300 cursor-pointer"
-                      >
-                        <FaCircleArrowDown className="text-xl" />
-                      </button>
+                  <div className="space-y-3">
+                    {/* Checkout düyməsi */}
+                    <button
+                      onClick={handlePlaceOrder}
+                      className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+                    >
+                      <TbBasketCheck className="text-2xl" />
+                      <span>Complete Order - ${state.total.toFixed(2)}</span>
+                      <FaCircleArrowDown className="text-xl animate-bounce" />
+                    </button>
+
+                    <div className="text-center text-xs text-gray-500">
+                      Once your order is confirmed, you will be redirected to
+                      the tracking page
                     </div>
                   </div>
                 )}
