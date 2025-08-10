@@ -44,9 +44,9 @@ const Header = () => {
   } = useCart();
 
   const [location, setLocation] = useState<LocationData>({
-    address: "Regent Street, A4, A4201",
-    city: "London",
-    country: "UK",
+    address: "Əli İsazadə küçəsi",
+    city: "Bakı",
+    country: "Azərbaycan",
   });
   const [customAddress, setCustomAddress] = useState("");
   const [isDetectingLocation, setIsDetectingLocation] = useState(false);
@@ -327,9 +327,6 @@ const Header = () => {
               </li>
               <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
                 <Link href="/pages/restaurants">Restaurants</Link>
-              </li>
-              <li className="p-4 rounded-[20px] hover:bg-orange-400 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-105">
-                <Link href="/trackOrder">Track Order</Link>
               </li>
             </ul>
             <div className="p-4 rounded-[20px] bg-slate-950 hover:bg-slate-800 text-white transition-all duration-300 cursor-pointer transform hover:scale-105">

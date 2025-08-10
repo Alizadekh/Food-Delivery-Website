@@ -53,7 +53,7 @@ const TrackOrder = () => {
   const [currentStatus, setCurrentStatus] = useState<OrderStatus>("preparing");
   const [progress, setProgress] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(35);
-  const [courierName] = useState("Əli Məmmədov");
+  const [courierName] = useState("Ferid Ismayilov");
   const [isLoading, setIsLoading] = useState(true);
 
   const statusSteps: Array<{
@@ -65,100 +65,93 @@ const TrackOrder = () => {
   }> = [
     {
       key: "preparing",
-      label: "Yeməyiniz hazırlanır",
+      label: "Your food is being prepared",
       icon: <ChefHat className="w-6 h-6" />,
       color: "bg-orange-500",
-      description: "Usta aşpazlar yeməyinizi ehtiyatla hazırlayır",
+      description: "Master chefs are carefully preparing your meal",
     },
     {
       key: "packaging",
-      label: "Sifariş paketlənir",
+      label: "Order is being packaged",
       icon: <Package className="w-6 h-6" />,
       color: "bg-blue-500",
-      description: "Yeməyiniz təhlükəsiz şəkildə qablaşdırılır",
+      description: "Your food is being safely packaged",
     },
     {
       key: "finding_courier",
-      label: "Kuryer tapılır",
+      label: "Finding courier",
       icon: <Search className="w-6 h-6" />,
       color: "bg-purple-500",
-      description: "Ən yaxın kuryer axtarılır",
+      description: "Searching for the nearest courier",
     },
     {
       key: "courier_pickup",
-      label: "Kuryer sifarişi götürür",
+      label: "Courier picks up order",
       icon: <Bike className="w-6 h-6" />,
       color: "bg-indigo-500",
-      description: "Kuryer restoranadan sifarişi təhvil alır",
+      description: "Courier receives the order from restaurant",
     },
     {
       key: "on_way",
-      label: "Kuryer sizə doğru hərəkət edir",
+      label: "Courier is heading to you",
       icon: <MapPin className="w-6 h-6" />,
       color: "bg-green-500",
-      description: "Kuryer ünvanınıza doğru yoldadır",
+      description: "Courier is on the way to your address",
     },
     {
       key: "arrived",
-      label: "Kuryer çatıb",
+      label: "Courier has arrived",
       icon: <Home className="w-6 h-6" />,
       color: "bg-yellow-500",
-      description: "Kuryer ünvanınıza çatıb",
+      description: "Courier has arrived at your address",
     },
     {
       key: "delivered",
-      label: "Çatdırıldı",
+      label: "Delivered",
       icon: <CheckCircle className="w-6 h-6" />,
       color: "bg-emerald-500",
-      description: "Sifarişiniz uğurla çatdırıldı!",
+      description: "Your order has been successfully delivered!",
     },
   ];
 
   useEffect(() => {
-    const savedOrder = localStorage.getItem("currentOrder");
-    if (savedOrder) {
-      const orderInfo = JSON.parse(savedOrder);
-      setOrderData(orderInfo);
-      setCurrentStatus(orderInfo.status || "preparing");
-    } else {
-      setOrderData({
-        id: "ORD" + Date.now(),
-        items: [
-          {
-            id: 1,
-            name: "Chicken Burger",
-            price: 15.99,
-            quantity: 2,
-            restaurantName: "Burger Palace",
-          },
-          {
-            id: 2,
-            name: "French Fries",
-            price: 5.99,
-            quantity: 1,
-            restaurantName: "Burger Palace",
-          },
-          {
-            id: 3,
-            name: "Coca Cola",
-            price: 2.99,
-            quantity: 2,
-            restaurantName: "Burger Palace",
-          },
-        ],
-        total: 42.96,
-        subtotal: 42.96,
-        discount: 0,
-        activePromo: null,
-        location: {
-          address: "28 May küçəsi 15",
-          city: "Bakı",
-          country: "Azerbaijan",
+    setOrderData({
+      id: "ORD" + Date.now(),
+      items: [
+        {
+          id: 1,
+          name: "Chicken Burger",
+          price: 15.99,
+          quantity: 2,
+          restaurantName: "Burger Palace",
         },
-        timestamp: new Date().toISOString(),
-        status: "preparing",
-      });
-    }
+        {
+          id: 2,
+          name: "French Fries",
+          price: 5.99,
+          quantity: 1,
+          restaurantName: "Burger Palace",
+        },
+        {
+          id: 3,
+          name: "Coca Cola",
+          price: 2.99,
+          quantity: 2,
+          restaurantName: "Burger Palace",
+        },
+      ],
+      total: 42.96,
+      subtotal: 42.96,
+      discount: 0,
+      activePromo: null,
+      location: {
+        address: "28 May Street 15",
+        city: "Baku",
+        country: "Azerbaijan",
+      },
+      timestamp: new Date().toISOString(),
+      status: "preparing",
+    });
     setIsLoading(false);
   }, []);
 
@@ -184,7 +177,7 @@ const TrackOrder = () => {
       setProgress(((currentIndex + 1) / statusSteps.length) * 100);
     }
 
-    // 10 saniyəlik simulyasya
+    // 10 saniye sumilyasiya
     if (currentStatus !== "delivered") {
       const timer = setTimeout(() => {
         const currentIndex = statusSteps.findIndex(
@@ -200,14 +193,18 @@ const TrackOrder = () => {
   }, [currentStatus]);
 
   const formatTime = (minutes: number) => {
-    if (minutes <= 0) return "Çox tezliklə...";
+    if (minutes <= 0) return "Very soon...";
     const hours = Math.floor(minutes / 60);
     const mins = minutes % 60;
     if (hours > 0) {
-      return `${hours}s ${mins}d`;
+      return `${hours}h ${mins}m`;
     }
-    return `${mins} dəqiqə`;
+    return `${mins} minutes`;
   };
+
+  function getCurrentStepIndex() {
+    return statusSteps.findIndex((step) => step.key === currentStatus);
+  }
 
   if (isLoading) {
     return (
@@ -223,14 +220,14 @@ const TrackOrder = () => {
         <div className="text-center bg-white rounded-2xl p-8 shadow-xl max-w-md">
           <div className="text-6xl mb-4">😕</div>
           <h1 className="text-2xl font-bold text-gray-800 mb-4">
-            Sifariş tapılmadı
+            Order not found
           </h1>
-          <p className="text-gray-600 mb-6">Əvvəlcə sifariş verməlisiniz</p>
+          <p className="text-gray-600 mb-6">You need to place an order first</p>
           <button
             onClick={() => (window.location.href = "/")}
             className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
           >
-            Ana səhifəyə qayıt
+            Return to homepage
           </button>
         </div>
       </div>
@@ -273,10 +270,10 @@ const TrackOrder = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2 animate-fade-in">
-            Sifarişinizi İzləyin
+            Track Your Order
           </h1>
           <p className="text-gray-600 text-lg">
-            Sifariş ID:{" "}
+            Order ID:{" "}
             <span className="font-mono font-bold text-orange-600">
               #{orderData.id}
             </span>
@@ -288,7 +285,7 @@ const TrackOrder = () => {
             <div className="flex-1">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <Package className="w-5 h-5 text-orange-500" />
-                Sifarişinizin tərkibi
+                Order contents
               </h3>
               <div className="space-y-3">
                 {orderData.items.map((item, index) => (
@@ -326,30 +323,30 @@ const TrackOrder = () => {
             <div className="lg:w-80 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
               <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <DollarSign className="w-5 h-5 text-green-500" />
-                Ödəniş məlumatı
+                Payment information
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Ara cəm:</span>
+                  <span className="text-gray-600">Subtotal:</span>
                   <span className="font-semibold">
                     ${orderData.subtotal.toFixed(2)}
                   </span>
                 </div>
                 {orderData.discount > 0 && (
                   <div className="flex justify-between text-green-600">
-                    <span>Endirim:</span>
+                    <span>Discount:</span>
                     <span>-${orderData.discount.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="border-t pt-3 flex justify-between text-lg font-bold text-gray-800">
-                  <span>Cəmi:</span>
+                  <span>Total:</span>
                   <span className="text-green-600">
                     ${orderData.total.toFixed(2)}
                   </span>
                 </div>
                 <div className="bg-white rounded-lg p-3 mt-4">
                   <p className="text-sm text-gray-600 mb-1">
-                    Çatdırılma ünvanı:
+                    Delivery address:
                   </p>
                   <p className="font-medium text-gray-800">
                     {orderData.location.address}
@@ -366,7 +363,7 @@ const TrackOrder = () => {
         <div className="bg-white rounded-2xl shadow-xl p-6 mb-8 border border-green-100">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-gray-800">
-              Hazırlama Gedişatı
+              Preparation Progress
             </h2>
             <div className="flex items-center gap-2 bg-gradient-to-r from-orange-100 to-green-100 px-4 py-2 rounded-full">
               <Clock className="w-4 h-4 text-orange-500" />
@@ -395,7 +392,6 @@ const TrackOrder = () => {
             {statusSteps.map((step, index) => {
               const isActive = step.key === currentStatus;
               const isCompleted = index < getCurrentStepIndex();
-              const currentIndex = getCurrentStepIndex();
 
               return (
                 <div
@@ -461,7 +457,7 @@ const TrackOrder = () => {
           <div className="bg-white rounded-2xl shadow-xl p-6 mb-8 border border-blue-100 transform transition-all duration-500 animate-slide-up">
             <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
               <Bike className="w-6 h-6 text-blue-500" />
-              Kuryer məlumatları
+              Courier information
             </h3>
 
             <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
@@ -488,13 +484,13 @@ const TrackOrder = () => {
                   <span className="text-sm text-gray-600 ml-1">(4.9)</span>
                 </div>
                 <p className="text-sm text-gray-600">
-                  Təcrübəli kuryer • 500+ çatdırılma
+                  Experienced courier • 500+ deliveries
                 </p>
               </div>
 
               <div className="text-center">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse mb-1"></div>
-                <p className="text-xs text-green-600 font-medium">Aktiv</p>
+                <p className="text-xs text-green-600 font-medium">Active</p>
               </div>
             </div>
           </div>
@@ -503,7 +499,7 @@ const TrackOrder = () => {
         <div className="bg-white rounded-2xl shadow-xl p-6 border border-purple-100">
           <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
             <Clock className="w-6 h-6 text-purple-500" />
-            Canlı yeniliklər
+            Live updates
           </h3>
 
           <div className="space-y-4 max-h-64 overflow-y-auto">
@@ -544,9 +540,7 @@ const TrackOrder = () => {
                       {step.description}
                     </p>
                     <p className="text-xs text-gray-500 mt-2">
-                      {index === 0
-                        ? "İndi"
-                        : `${(index + 1) * 10} saniyə əvvəl`}
+                      {index === 0 ? "Now" : `${(index + 1) * 10} seconds ago`}
                     </p>
                   </div>
                 </div>
@@ -556,26 +550,28 @@ const TrackOrder = () => {
 
         {currentStatus === "delivered" && (
           <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl p-8 text-center max-w-md w-full transform transition-all duration-500 scale-100 animate-bounce">
-              <div className="text-8xl mb-4 animate-spin">🎉</div>
+            <div className="bg-white rounded-2xl p-8 text-center max-w-md w-full transform transition-all duration-500 scale-100 ">
               <h2 className="text-3xl font-bold text-green-600 mb-4">
-                Təbriklər!
+                Congratulations!
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Sifarişiniz uğurla çatdırıldı!
+                Your order has been successfully delivered!
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => (window.location.href = "/")}
                   className="flex-1 bg-gradient-to-r from-orange-500 to-green-500 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  Ana səhifə
+                  Homepage
                 </button>
                 <button
-                  onClick={() => setCurrentStatus("delivered")}
+                  onClick={() => {
+                    setCurrentStatus("delivered");
+                    window.location.href = "/";
+                  }}
                   className="flex-1 bg-gray-500 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  Bağla
+                  Close
                 </button>
               </div>
             </div>
@@ -616,10 +612,6 @@ const TrackOrder = () => {
       `}</style>
     </div>
   );
-
-  function getCurrentStepIndex() {
-    return statusSteps.findIndex((step) => step.key === currentStatus);
-  }
 };
 
 export default TrackOrder;
